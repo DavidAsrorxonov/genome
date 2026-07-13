@@ -139,4 +139,54 @@ export class Genome {
 
     return stuck;
   }
+
+  private resolve(): void {
+    const dna: Record<string, Primitive> = { ...this.primitives };
+
+    for (const key of this.compiled.order) {
+      const fn = this.tokenDefs[key] as TokenFn;
+      dna[key] = fn(dna, this.context);
+    }
+
+    this.dna = dna;
+    this.express();
+    this.subscribers.forEach((fn) => fn());
+  }
+
+  private express(): void {
+    for (const [name, value] of Object.entries(this.dna)) {
+      const cssVar = `--g-${name.replace(/([A-Z])/g, "-$1").toLowerCase()}`;
+      const str = String(value);
+      if (this.lastExpressed.get(cssVar) !== str) {
+        this.target.style.setProperty(cssVar, str);
+        this.lastExpressed.set(cssVar, str);
+      }
+    }
+  }
+
+  public mutate(patch: RuntimeContext): void {
+    this.context = { ...this.context, ...patch };
+    this.resolve();
+  }
+
+  public getTrait(name: string): Primitive {
+    if (!(name in this.dna)) {
+      throw new Error(`Unknown token: "${name}"`);
+    }
+    return this.dna[name]!;
+  }
+
+  public subscribe(fn: () => void): () => void {
+    this.subscribers.add(fn);
+    return () => this.subscribers.delete(fn);
+  }
+
+  public scope(target: HTMLElement, overrides: RuntimeContext = {}): Genome {
+    const child = new Genome(
+      { primitives: this.primitives, tokens: this.tokenDefs },
+      target,
+    );
+    child.mutate({ ...this.context, ...overrides });
+    return child;
+  }
 }
