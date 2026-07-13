@@ -1,0 +1,26 @@
+{
+  "name": "@genome/core",
+  "version": "0.1.0",
+  "description": "Reactive design token compiler — dependency-graph resolver, contrast locking, fluid typography, and browser environment hooks.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
