@@ -5,7 +5,7 @@ export class CircularDependencyError extends Error {
   }
 }
 
-export class UnknownTokenError extends Error {
+export class UnresolvedTokenError extends Error {
   constructor(
     public readonly token: string,
     public readonly missing: string[],
