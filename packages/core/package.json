@@ -17,10 +17,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap"
+    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --tsconfig tsconfig.build.json"
   },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1"
   }
 }
