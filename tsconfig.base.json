@@ -6,6 +6,7 @@
     "moduleResolution": "Bundler",
     "declaration": true,
     "declarationMap": true,
+    "emitDeclarationOnly": true,
     "sourceMap": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,
