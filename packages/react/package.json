@@ -17,7 +17,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap"
+    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --tsconfig tsconfig.build.json"
   },
   "peerDependencies": {
     "@genome/core": "*",
