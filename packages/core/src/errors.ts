@@ -1,3 +1,6 @@
+/**
+ * Reports a dependency cycle found while resolving Genome tokens.
+ */
 export class CircularDependencyError extends Error {
   constructor(public readonly cycle: string[]) {
     super(`Circular token dependency: ${cycle.join(" -> ")} -> ${cycle[0]}`);
@@ -5,6 +8,9 @@ export class CircularDependencyError extends Error {
   }
 }
 
+/**
+ * Reports token references that could not be resolved from the theme.
+ */
 export class UnresolvedTokenError extends Error {
   constructor(
     public readonly token: string,

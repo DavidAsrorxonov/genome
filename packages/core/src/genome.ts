@@ -12,6 +12,10 @@ interface CompiledGraph {
   dependencies: Map<string, Set<string>>;
 }
 
+/**
+ * Resolves Genome design tokens, tracks runtime context, and expresses
+ * the resulting values as CSS custom properties on a target element.
+ */
 export class Genome {
   private primitives: Record<string, Primitive>;
   private tokenDefs: Record<string, TokenFn | Primitive>;
@@ -22,6 +26,9 @@ export class Genome {
   private lastExpressed = new Map<string, string>();
   private subscribers = new Set<() => void>();
 
+  /**
+   * Creates a Genome instance from primitive and derived token definitions.
+   */
   constructor(
     config: GenomeConfig,
     target: HTMLElement = document.documentElement,
@@ -164,11 +171,17 @@ export class Genome {
     }
   }
 
+  /**
+   * Merges runtime context changes and re-resolves all derived tokens.
+   */
   public mutate(patch: RuntimeContext): void {
     this.context = { ...this.context, ...patch };
     this.resolve();
   }
 
+  /**
+   * Reads the current resolved value for a Genome token.
+   */
   public getTrait(name: string): Primitive {
     if (!(name in this.dna)) {
       throw new Error(`Unknown token: "${name}"`);
@@ -176,11 +189,18 @@ export class Genome {
     return this.dna[name]!;
   }
 
+  /**
+   * Registers a listener that runs after Genome resolves and expresses changes.
+   */
   public subscribe(fn: () => void): () => void {
     this.subscribers.add(fn);
     return () => this.subscribers.delete(fn);
   }
 
+  /**
+   * Creates a child Genome instance that expresses the same token system
+   * onto another element with optional context overrides.
+   */
   public scope(target: HTMLElement, overrides: RuntimeContext = {}): Genome {
     const child = new Genome(
       { primitives: this.primitives, tokens: this.tokenDefs },
