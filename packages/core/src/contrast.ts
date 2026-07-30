@@ -22,6 +22,10 @@ function relativeLuminance(hex: string): number {
 
 /**
  * Calculates the WCAG contrast ratio between two hex colors.
+ *
+ * @param hexA - The first color as a hex string.
+ * @param hexB - The second color as a hex string.
+ * @returns The contrast ratio between the two colors.
  */
 export function contrastRatio(hexA: string, hexB: string): number {
   const [l1, l2] = [relativeLuminance(hexA), relativeLuminance(hexB)].sort(
@@ -33,6 +37,11 @@ export function contrastRatio(hexA: string, hexB: string): number {
 /**
  * Adjusts a foreground color until it reaches the requested contrast
  * ratio against the background color.
+ *
+ * @param foreground - The foreground color as a hex string.
+ * @param background - The background color as a hex string.
+ * @param minRatio - The minimum contrast ratio to satisfy.
+ * @returns The original or adjusted foreground color.
  */
 export function lockContrast(
   foreground: string,

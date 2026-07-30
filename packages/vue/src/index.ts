@@ -3,6 +3,10 @@ import type { Genome, Primitive } from "@genome/core";
 
 /**
  * Subscribes a Vue component to a resolved Genome token value.
+ *
+ * @param genome - The Genome instance to subscribe to.
+ * @param name - The token name to read.
+ * @returns A Vue ref containing the token's current resolved value.
  */
 export function useGenomeTrait(genome: Genome, name: string): Ref<Primitive> {
   const value = ref(genome.getTrait(name)) as Ref<Primitive>;

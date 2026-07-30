@@ -28,6 +28,9 @@ export class Genome {
 
   /**
    * Creates a Genome instance from primitive and derived token definitions.
+   *
+   * @param config - The primitive and derived token definitions to resolve.
+   * @param target - The element that receives expressed CSS custom properties.
    */
   constructor(
     config: GenomeConfig,
@@ -173,6 +176,8 @@ export class Genome {
 
   /**
    * Merges runtime context changes and re-resolves all derived tokens.
+   *
+   * @param patch - Runtime context values to merge into the current context.
    */
   public mutate(patch: RuntimeContext): void {
     this.context = { ...this.context, ...patch };
@@ -181,6 +186,9 @@ export class Genome {
 
   /**
    * Reads the current resolved value for a Genome token.
+   *
+   * @param name - The token name to read.
+   * @returns The token's current resolved value.
    */
   public getTrait(name: string): Primitive {
     if (!(name in this.dna)) {
@@ -191,6 +199,9 @@ export class Genome {
 
   /**
    * Registers a listener that runs after Genome resolves and expresses changes.
+   *
+   * @param fn - The listener to call after Genome changes are resolved.
+   * @returns A function that unsubscribes the listener.
    */
   public subscribe(fn: () => void): () => void {
     this.subscribers.add(fn);
@@ -200,6 +211,10 @@ export class Genome {
   /**
    * Creates a child Genome instance that expresses the same token system
    * onto another element with optional context overrides.
+   *
+   * @param target - The element that receives the child Genome's CSS custom properties.
+   * @param overrides - Runtime context values to apply to the child Genome.
+   * @returns A child Genome bound to the target element.
    */
   public scope(target: HTMLElement, overrides: RuntimeContext = {}): Genome {
     const child = new Genome(
