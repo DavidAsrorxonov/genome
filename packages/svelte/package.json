@@ -1,6 +1,6 @@
 {
   "name": "@genomejs/svelte",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Svelte bindings for @genomejs/core",
   "type": "module",
   "svelte": "./dist/index.svelte.js",
