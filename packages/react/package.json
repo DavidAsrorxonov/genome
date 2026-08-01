@@ -1,7 +1,7 @@
 {
-  "name": "@genome/react",
+  "name": "@genomejs/react",
   "version": "0.1.0",
-  "description": "React bindings for @genome/core",
+  "description": "React bindings for @genomejs/core",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -29,11 +29,11 @@
     "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --tsconfig tsconfig.build.json && rm -f dist/index.test.d.ts dist/index.test.d.ts.map"
   },
   "peerDependencies": {
-    "@genome/core": "*",
+    "@genomejs/core": "*",
     "react": ">=18"
   },
   "devDependencies": {
-    "@genome/core": "*",
+    "@genomejs/core": "*",
     "@types/react": "^18.3.5",
     "react": "^18.3.1"
   },

@@ -1,4 +1,4 @@
-import type { Primitive, Genome } from "@genome/core";
+import type { Primitive, Genome } from "@genomejs/core";
 
 /**
  * Subscribes a Svelte component to a resolved Genome token value.

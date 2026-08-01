@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { render, screen, act } from "@testing-library/react";
-import { Genome } from "@genome/core";
+import { Genome } from "@genomejs/core";
 import { useGenomeTrait } from "./index";
 
 function TestComponent({ genome }: { genome: Genome }) {

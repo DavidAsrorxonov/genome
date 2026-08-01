@@ -1,7 +1,7 @@
 {
-  "name": "@genome/vue",
+  "name": "@genomejs/vue",
   "version": "0.1.0",
-  "description": "Vue bindings for @genome/core",
+  "description": "Vue bindings for @genomejs/core",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -29,11 +29,11 @@
     "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --tsconfig tsconfig.build.json && rm -f dist/index.test.d.ts dist/index.test.d.ts.map"
   },
   "peerDependencies": {
-    "@genome/core": "*",
+    "@genomejs/core": "*",
     "vue": ">=3"
   },
   "devDependencies": {
-    "@genome/core": "*",
+    "@genomejs/core": "*",
     "vue": "^3.4.38"
   },
   "license": "MIT",

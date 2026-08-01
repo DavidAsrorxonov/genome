@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it } from "vitest";
 import { render, cleanup } from "@testing-library/svelte";
 import { flushSync } from "svelte";
-import { Genome } from "@genome/core";
+import { Genome } from "@genomejs/core";
 import TestComponent from "./_TestComponent.svelte";
 
 describe("genomeTrait", () => {

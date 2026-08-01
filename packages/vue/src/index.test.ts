@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { defineComponent, h, nextTick } from "vue";
 import { mount } from "@vue/test-utils";
-import { Genome } from "@genome/core";
+import { Genome } from "@genomejs/core";
 import { useGenomeTrait } from "./index";
 
 function makeTestComponent(genome: Genome) {

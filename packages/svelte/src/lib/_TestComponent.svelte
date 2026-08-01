@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Genome } from "@genome/core";
+  import type { Genome } from "@genomejs/core";
   import { genomeTrait } from "./index.svelte";
 
   let { genome, name }: { genome: Genome; name: string } = $props();

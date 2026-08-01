@@ -1,5 +1,5 @@
 {
-  "name": "@genome/core",
+  "name": "@genomejs/core",
   "version": "0.1.0",
   "description": "Reactive design token compiler — dependency-graph resolver, contrast locking, fluid typography, and browser environment hooks.",
   "type": "module",

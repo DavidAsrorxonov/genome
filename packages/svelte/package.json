@@ -1,7 +1,7 @@
 {
-  "name": "@genome/svelte",
+  "name": "@genomejs/svelte",
   "version": "0.1.0",
-  "description": "Svelte bindings for @genome/core",
+  "description": "Svelte bindings for @genomejs/core",
   "type": "module",
   "svelte": "./dist/index.svelte.js",
   "types": "./dist/index.svelte.d.ts",
@@ -27,11 +27,11 @@
     "build": "svelte-package && rm -f dist/index.test.* dist/_TestComponent.*"
   },
   "peerDependencies": {
-    "@genome/core": "*",
+    "@genomejs/core": "*",
     "svelte": ">=5"
   },
   "devDependencies": {
-    "@genome/core": "*",
+    "@genomejs/core": "*",
     "@sveltejs/package": "^2.5.8",
     "svelte": "^5.0.0"
   },

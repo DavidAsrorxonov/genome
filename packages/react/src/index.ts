@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from "react";
-import type { Genome, Primitive } from "@genome/core";
+import type { Genome, Primitive } from "@genomejs/core";
 
 /**
  * Subscribes a React component to a resolved Genome token value.
