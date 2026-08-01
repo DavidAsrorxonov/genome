@@ -24,7 +24,7 @@
     "url": "https://github.com/DavidAsrorxonov/genome/issues"
   },
   "scripts": {
-    "build": "svelte-package"
+    "build": "svelte-package && rm -f dist/index.test.d.ts dist/index.test.d.ts.map"
   },
   "peerDependencies": {
     "@genome/core": "*",

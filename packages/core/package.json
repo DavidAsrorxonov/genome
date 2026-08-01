@@ -26,7 +26,7 @@
     "url": "https://github.com/DavidAsrorxonov/genome/issues"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --tsconfig tsconfig.build.json"
+    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --tsconfig tsconfig.build.json && rm -f dist/*.test.d.ts dist/*.test.d.ts.map"
   },
   "license": "MIT",
   "publishConfig": {
