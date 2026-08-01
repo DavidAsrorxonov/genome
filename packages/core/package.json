@@ -16,6 +16,15 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DavidAsrorxonov/genome.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/DavidAsrorxonov/genome/tree/main/packages/core#readme",
+  "bugs": {
+    "url": "https://github.com/DavidAsrorxonov/genome/issues"
+  },
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --tsconfig tsconfig.build.json"
   },

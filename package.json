@@ -5,6 +5,14 @@
   "workspaces": [
     "packages/*"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DavidAsrorxonov/genome.git"
+  },
+  "homepage": "https://github.com/DavidAsrorxonov/genome#readme",
+  "bugs": {
+    "url": "https://github.com/DavidAsrorxonov/genome/issues"
+  },
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "test": "vitest run"

@@ -6,3 +6,5 @@ coverage/
 .turbo/
 *.tsbuildinfo
 .svelte-kit/
+
+.tsc-out/

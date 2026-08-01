@@ -14,6 +14,15 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DavidAsrorxonov/genome.git",
+    "directory": "packages/svelte"
+  },
+  "homepage": "https://github.com/DavidAsrorxonov/genome/tree/main/packages/svelte#readme",
+  "bugs": {
+    "url": "https://github.com/DavidAsrorxonov/genome/issues"
+  },
   "scripts": {
     "build": "svelte-package"
   },
