@@ -22,7 +22,7 @@ export class Genome {
   private compiled: CompiledGraph;
   private dna: Record<string, Primitive> = {};
   private context: RuntimeContext = {};
-  private target: HTMLElement;
+  private target: HTMLElement | null;
   private lastExpressed = new Map<string, string>();
   private subscribers = new Set<() => void>();
 
@@ -34,7 +34,9 @@ export class Genome {
    */
   constructor(
     config: GenomeConfig,
-    target: HTMLElement = document.documentElement,
+    target: HTMLElement | null = typeof document === "undefined"
+      ? null
+      : document.documentElement,
   ) {
     this.primitives = { ...config.primitives };
     this.tokenDefs = { ...config.tokens };
@@ -164,6 +166,8 @@ export class Genome {
   }
 
   private express(): void {
+    if (!this.target) return;
+
     for (const [name, value] of Object.entries(this.dna)) {
       const cssVar = `--g-${name.replace(/([A-Z])/g, "-$1").toLowerCase()}`;
       const str = String(value);
